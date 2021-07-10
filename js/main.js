@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  var newImgpre = $('#newImg').attr('src')
 
   var myArray = [];
   // you can change the value of storageKey if you want
@@ -116,7 +117,7 @@ $(document).ready(function() {
     var newDescrip = $('#descrip').val();
     var newDate = $('#duedate').val();
     var newPriority = $('#priority').val();
-    var newImgpre = $('#imagePreview').attr('src')
+    var newImgpre = $('#newImg').attr('src')
 
     // clear input fields
     $('#itemname').val("");
@@ -234,14 +235,17 @@ $(document).ready(function() {
   });
 
 }); // end document ready
-function myFunction() {
-  const file = document.querySelector('#uploadImage').files[0];
-  var reader = new FileReader();
-  reader.readAsDataURL(file);
-  reader.onload = function () {
-      localStorage.setItem("image", reader.result);
-      document.getElementById("imagePreview").setAttribute("src", localStorage.getItem("image"))
-  };
+function readURL(input) {
+  if (input.files && input.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+          $('#newImg').attr('src', e.target.result);
+      }
+
+      reader.readAsDataURL(input.files[0]);
+  }
 }
-if (localStorage.getItem("image"))
-  document.getElementById("newImg").setAttribute("src", localStorage.getItem("image"))
+$("#imgInp").change(function(){
+  readURL(this);
+});

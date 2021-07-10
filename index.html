@@ -39,10 +39,10 @@
                         <textarea name="descrip" id="descrip" rows="4" maxlength="300"
                             placeholder="No more than 300 characters long" class="form-control"></textarea>
                     </div>
-                    <div class="form-group">
-                        <input type="file" accept="image/*" id="uploadImage"><br>
-                        <button onclick="myFunction()">Submit Picture</button><br>
-                        <img id="newImg">
+
+                        <input type='file' id="imgInp" />
+                        <img id="newImg" src="#" alt="your image" />
+
                     </div>
 
                     <div class="form-group">
@@ -69,6 +69,7 @@
 
             </fieldset>
         </form>
+
         <!-- this will be hidden at times -->
         <div class="row" id="toDoDataRow">
             <div class="col-xs-12">
