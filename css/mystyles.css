@@ -18,3 +18,11 @@ h1 {
 .clearfix {
     clear: both;
 }
+.img-fluid{
+    height: auto;
+    max-width: 100%;
+}
+.img{
+    border-radius: 20px;
+    margin: 2%;
+}

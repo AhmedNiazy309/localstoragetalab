@@ -19,8 +19,8 @@ $(document).ready(function() {
         firstVisit = true;
         // write alert message for first visit
         $('#newItemForm').before('<p class="alert alert-success text-center"' +
-          ' id="firstTimeAlert">You' +
-          ' don\'t have a To Do list on this device. Use the form to create' +
+          ' id="firstTimeAlert">' +
+          ' please Use the form to create' +
           ' your first item.</p>');
         // hide two things not suitable for first visit
         $('#paraToHideForm').hide();
@@ -70,15 +70,32 @@ $(document).ready(function() {
       // use for checkbox
       var removalIndex = i;
       var itemstring = '<div class="panel panel-default">' +
-        '<div class="panel-body">' +
-        '<span class="label label-' + designate[0] + '">' +
-        designate[i] + '</span> ' +
-        '<img src = " ' + newImg + ' " >'+
-        itemname + ' &mdash; ' + descrip + '</div>' +
+      '<div class="panel-body">' +
+      '<div class="container-fluid">' +
+      '<div class="row">' +
+      '<div class="col-md-6">' +
+        // '<span class="label d-block label-' + designate[0] + '">' +
+        // designate[i] + '</span> ' +
+      '<div class="details">' +
+      '<h1>' + itemname + '</h1>'+
+      '<h3>' + descrip + '</h3>'+
+        //itemname + ' &mdash; ' + descrip +
+         '</div>' +
+         '</div>' +
+    
+        '<div class="col-md-6">' +
+        '<img src = " ' + newImg + ' " class="img-fluid img" >'+
+        '</div>'+
+        '</div>'+
+        '</div>'+
+        '</div>'+
+        '</div>'+
+
+
+
+
         '<div class="panel-footer">' +
-        
         '<span class="checkbox floater">' +
-        
         '<label><input type="checkbox" name="removeThis" value="' +
         removalIndex + '"> Remove</label></span>' +
         'DUE: ' + duedate + '</div> </div>';
@@ -249,3 +266,4 @@ function readURL(input) {
 $("#imgInp").change(function(){
   readURL(this);
 });
+

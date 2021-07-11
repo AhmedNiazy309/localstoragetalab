@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title> To Do List with Local Storage </title>
+    <link rel="stylesheet" href="css/bootstrapv4.min.css">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/mystyles.css" rel="stylesheet">
 </head>
 
 <body>
-
     <div class="container">
         <form id="newItemForm" class="form-horizontal">
             <p id="paraToHideForm"><a href="#" id="hideForm">View your To Do list</a></p>
@@ -29,7 +29,8 @@
                 <div class="form-group">
                     <label for="duedate" class="col-sm-2 control-label">Due Date</label>
                     <div class="col-sm-10">
-                        <input type="date" name="duedate" id="duedate" class="form-control" required>
+                        <span class="Error">* <?php echo $duedateErr; ?></span>
+                        <input type="date" name="duedate" id="duedate" class="form-control" required value="<?php echo date('Y-m-d'); ?>">
                     </div>
                 </div>
 
@@ -39,11 +40,16 @@
                         <textarea name="descrip" id="descrip" rows="4" maxlength="300"
                             placeholder="No more than 300 characters long" class="form-control"></textarea>
                     </div>
-
+                </div>
+                <div class="form-group">
+                    <label for="descrip" class="col-sm-2 control-label">Image</label>
+                    <br>
+                    <div class="col-sm-10">
                         <input type='file' id="imgInp" />
-                        <img id="newImg" src="#" alt="your image" />
-
+                        <img id="newImg" src="#" alt="your image" class="img-fluid" />
+        
                     </div>
+                </div>
 
                     <div class="form-group">
                         <label for="priority" class="col-sm-2 control-label">Priority</label>
@@ -96,8 +102,7 @@
             </div>
         </div>
     </div> <!-- close container -->
-
-    <script src="js/jquery.min.js"></script>
+<script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
 </body>
